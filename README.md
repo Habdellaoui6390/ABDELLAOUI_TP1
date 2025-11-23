@@ -231,3 +231,4 @@
         ecrire("la somme es entiers de 1 á",n,"est:",Somme(n))          2
  FIN
  ```
+ 
