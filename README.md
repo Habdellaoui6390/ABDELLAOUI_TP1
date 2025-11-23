@@ -23,11 +23,11 @@
  DEBUT 
         c <-- 0                                           1
        Repeter
-               ecrire("Saisir le code PIN :")             1        donc le pire du cas on a T(n)=1+9*3+2 = 1+27+2 = 30
+               ecrire("Saisir le code PIN :")             1        donc le pire du cas on a T(n)=1+8*3+3 = 1+24+3 = 28
                lire(pin)                                  1
                c<--c+1                                    2
                Si(pin=pi)Alors                            1
-                    ecrire("Succés")                      1
+                    ecrire("Succés")                      
                Sinon
                     Si(c<3)Alors                          1
                          ecrire("Erreur")                 1
@@ -35,7 +35,7 @@
                           ecrire("Blockage")              1
                     Fin Si
                Fin Si
-       Jusqua(c=3 ou pin=pi)                              2
+       Jusqua(c=3 ou pin=pi)                              3
  FIN
  ```
 
@@ -101,8 +101,8 @@
           VAR n:ENTIER
        Fonction donnerdiviseurs1(n:ENTIER):ENTIER        
                  VAR b:ENTIER                             
-         Pour b de 1 á n pas 1 Faire 
-                Si(n mod b=0)Alors                        2          donc le pire du ces on a T(n)=(2+1)*n+1+1+2 = 3n+4
+         Pour b de 1 á n pas 1 Faire                      1 + n + 2n -> 3n + 1
+                Si(n mod b=0)Alors                        2         donc le pire du ces on a T(n)=(2+1)*n + 1 + n + 2n = 3n+1+3n = 6n + 1
                     ecrireln(b)                           1
                 Fin Si
          FinPour
@@ -148,7 +148,7 @@
             Repeter
                tentative<--tentative + 1                                2                               
                    Si(n=b)Alors                                         1
-                      ecrire("Félicitation")                            1
+                      ecrire("Félicitation")                            
                    Sinon
                       Si(b<n)Alors                                      1
                           ecrire("Trop petite")                         1
@@ -156,8 +156,8 @@
                          Si(n<b)Alors                                   1
                              ecrire("Trop grand")                       1
                          Sinon
-                            Si(tentative=5)Alors                        1        donc le pire du cas on a T(n)=1+(2+1+1+1+1+1+1+1+1+2)*n+(1+1+1+1+1+1)*n
-                                 ecrire("La réponse est:",n)            1                                     =1+12n+6n = 18n+1
+                            Si(tentative=5)Alors                        1        donc le pire du cas on a T(n)=1+(2+1+1+1+1+1+1+1+2)*n+(1+1+1+11n+1+1+1)*n
+                                 ecrire("La réponse est:",n)            1                                     =1+11n+(6+11n)*n = 1 + 17n + 11n^2
                             Fin Si
                          Fin Si
                       Fin Si
@@ -168,7 +168,7 @@
        Repeter
           ecrire("Entere un nombre:")                                   1
           lire(b)                                                       1
-          jeux(n,b)                                                     1
+          jeux(n,b)                                                     1+11n
           ecrire("Rejouer oui/non ?")                                   1
           lire(choix)                                                   1
        Jusqua(choix=non)                                                1
